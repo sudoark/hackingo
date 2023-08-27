@@ -80,7 +80,289 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
   gtag('config', 'G-JKLTN29E1B');
 </script>
-  <body style="background: rgba(0, 0, 0, 0.7) url(img/main-bg-2.webp); background-blend-mode: darken; /*background-repeat: no-repeat;*/">
+  <body style="background: rgba(0, 0, 0, 0.7) url(img/main-bg-2.webp); background-blend-mode: darken; /*background-repeat: no-repeat;*/" onload="notice()">
+<!--notice-->
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Outfit:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
+*,
+*:before,
+*:after {
+	box-sizing: border-box;
+}
+
+/* Some basic CSS overrides */
+
+button,
+input,
+select,
+textarea {
+	font: inherit;
+}
+
+a {
+	color: inherit;
+}
+
+/* End basic CSS override */
+
+* {
+	scrollbar-width: 0;
+}
+
+*::-webkit-scrollbar {
+	background-color: transparent;
+	width: 12px;
+}
+
+*::-webkit-scrollbar-thumb {
+	border-radius: 99px;
+	background-color: #ddd;
+	border: 4px solid #fff;
+}
+
+.modal {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-color: rgba(#000, 0.25);
+    line-height: 1.5;
+	min-height: 100vh;
+	font-family: "Outfit", sans-serif;
+	color: #2d232e;
+    backdrop-filter: blur(5px);
+    display: none;
+	/* background-color: #c8c0bd;
+	position: relative; */
+}
+
+.modal-container {
+	max-height: 90vh;
+	max-width: 500px;
+	margin-left: auto;
+	margin-right: auto;
+	background-color: #fff;
+	border-radius: 16px;
+	overflow: hidden;
+	display: flex;
+	flex-direction: column;
+	box-shadow: 0 15px 30px 0 rgba(#000, 0.25);
+	@media (max-width: 600px) {
+		width: 90%;
+	}
+}
+
+.modal-container-header {
+	padding: 16px 32px;
+	border-bottom: 1px solid #ddd;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.modal-container-title {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	line-height: 1;
+	font-weight: 700;
+	font-size: 1.125;
+	svg {
+		width: 32px;
+		height: 32px;
+		color: #750550;
+	}
+}
+
+.modal-container-body {
+	padding: 10px 32px 10px;
+	overflow-y: auto;
+}
+
+.rtf {
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
+		font-weight: 700;
+	}
+
+	h1 {
+		font-size: 1.5rem;
+		line-height: 1.125;
+	}
+
+	h2 {
+		font-size: 1.25rem;
+		line-height: 1.25;
+	}
+
+	h3 {
+		font-size: 1rem;
+		line-height: 1.5;
+	}
+
+	& > * + * {
+		margin-top: 1em;
+	}
+
+	& > * + :is(h1, h2, h3) {
+		margin-top: 2em;
+	}
+
+	& > :is(h1, h2, h3) + * {
+		margin-top: 0.75em;
+	}
+
+	ul,
+	ol {
+		margin-left: 20px;
+		list-style-position: inside;
+	}
+
+	ol {
+		list-style: numeric;
+	}
+
+	ul {
+		list-style: disc;
+	}
+}
+
+.modal-container-footer {
+	padding: 20px 32px;
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
+	border-top: 1px solid #ddd;
+	gap: 12px;
+	position: relative;
+	&:after {
+		content: "";
+		display: block;
+		position: absolute;
+		top: -51px;
+		left: 24px;
+		right: 24px;
+		height: 50px;
+		flex-shrink: 0;
+		background-image: linear-gradient(to top, rgba(#fff, 0.75), transparent);
+		pointer-events: none;
+	}
+}
+
+.button {
+	padding: 12px 20px;
+	border-radius: 8px;
+	background-color: transparent;
+	border: 0;
+	font-weight: 600;
+	cursor: pointer;
+	transition: 0.15s ease;
+
+	&.is-ghost {
+		&:hover,
+		&:focus {
+			background-color: #dfdad7;
+		}
+	}
+
+	&.is-primary {
+		background-color: #750550;
+		color: #fff;
+		&:hover,
+		&:focus {
+			background-color: #4a0433;
+		}
+	}
+}
+
+.icon-button {
+	padding: 0;
+	border: 0;
+	background-color: transparent;
+	width: 40px;
+	height: 40px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	line-height: 1;
+	cursor: pointer;
+	border-radius: 8px;
+	transition: 0.15s ease;
+	svg {
+		width: 24px;
+		height: 24px;
+	}
+
+	&:hover,
+	&:focus {
+		background-color: #dfdad7;
+	}
+}
+    </style>
+        <div id="myModal" class="modal">
+        <article class="modal-container">
+            <header class="modal-container-header">
+                <h1 class="modal-container-title">
+                    <svg fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" style="height: 50px; width: px;">
+                        <path clip-rule="evenodd" d="M18 3a1 1 0 00-1.447-.894L8.763 6H5a3 3 0 000 6h.28l1.771 5.316A1 1 0 008 18h1a1 1 0 001-1v-4.382l6.553 3.276A1 1 0 0018 15V3z" fill-rule="evenodd"></path>
+                      </svg>
+                    Important Annoucement!
+                </h1>
+                <button id="close" class="icon-button">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                        <path fill="none" d="M0 0h24v24H0z" />
+                        <path fill="currentColor" d="M12 10.586l4.95-4.95 1.414 1.414-4.95 4.95 4.95 4.95-1.414 1.414-4.95-4.95-4.95 4.95-1.414-1.414 4.95-4.95-4.95-4.95L7.05 5.636z" />
+                    </svg>
+                </button>
+            </header>
+            <section class="modal-container-body rtf">
+                <h2>We're not going anywhere!</h2>
+    
+                <p>We know you may have noticed that we've been a little quiet lately. We're not offline or inactive, we're just going through some exciting changes.</p>
+                <p>We're restructuring our staff to make us more efficient and effective. We're also developing new and innovative ways to interact with you. We want to make sure that our products and services are as simple, optimized, and creative as possible.</p>
+                <p>We can't tell you too much about our future plans just yet, but we promise that they're going to be amazing. We're really excited about what the future holds, and we can't wait to share it with you.</p>
+                <b>In the meantime, please bear with us as we make these changes. We appreciate your patience and understanding.</b>
+                <p>Thanks for understanding,<br>Development Team<br>HACKINGO😊😊😊<br><q>Feel The Difference!</q></p>
+
+
+                <h3>If you have any questions, please don't hesitate to contact us. We're always happy to help.</h3>
+    
+                <p><b>P.S.</b> We'll be sure to keep you updated on our progress. So stay tuned!</p>
+    
+            </section>
+            <footer class="modal-container-footer">
+                <button id="closebtn" class="button is-primary">Okay!</button>
+            </footer>
+        </article>
+    </div>
+    <script>
+              var closeButton = document.getElementById("close");
+        var okay = document.getElementById("closebtn");
+        
+       function notice() {
+            var modal = document.getElementById("myModal");
+            modal.style.display = "flex";
+        }
+        
+        closeButton.onclick = function() {
+            var modal = document.getElementById("myModal");
+            modal.style.display = "none";
+        }
+        okay.onclick = function() {
+            var modal = document.getElementById("myModal");
+            modal.style.display = "none";
+        }
+    </script>
+    <!--notice-->
     <!-- Google Tag Manager (noscript) -->
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-564XZZK"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -217,7 +499,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
               href="#"
               class="btn btn-primary rec-button common-button"
               target="_blank"
-              >On Hold</a
+              >On Hold :)</a
             >
           </div>
         </div>
@@ -238,7 +520,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
               class="btn btn-primary rec-button common-button"
               target="_blank"
-              >Coming Soon (Batch 1)</a
+              >Coming Soon :)</a
             >
           </div>
         </div>
@@ -258,7 +540,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             
             class="btn btn-primary rec-button common-button"
             target="_blank"
-            >Coming Soon</a
+            >Coming Soon :)</a
           >
         </div>
       </div>
